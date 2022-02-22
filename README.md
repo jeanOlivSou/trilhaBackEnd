@@ -4,7 +4,7 @@
 
 ## Desafio 1: 
 
-- a) Com suas palavras defina o que é um sistema de controle de versões (VCS)?  (máx 10 linhas):
+- *Com suas palavras defina o que é um sistema de controle de versões (VCS)?  (máx 10 linhas):*
 
 
     R- São sistemas que auxiliam times de desenvolvimento fazer a gestão de mudanças e versionamento no código-fonte em todo

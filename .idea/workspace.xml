@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4fbd8deb-00c3-4ee9-bab7-6139df88a6ec" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domains/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domains/Categoria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domains/Lancamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domains/Lancamento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domains/LancamentosExec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domains/LancamentosExec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domains/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domains/Produto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio1/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domains/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio2/domains/Categoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domains/Lancamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio2/domains/Lancamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domains/LancamentosExec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio2/domains/LancamentosExec.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domains/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio2/domains/Produto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,10 +41,29 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
-  <component name="RunManager" selected="Application.LancamentosExec">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jolivsou\Desktop\trilhaItau\trilhaBackEnd\src\desafio2" />
+      <recent name="C:\Users\jolivsou\Desktop\trilhaItau\trilhaBackEnd\src\desafio1" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.LancamentosExec (1)">
     <configuration name="ClasseTeste" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ClasseTeste" />
       <module name="trilhaBackEnd" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LancamentosExec (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="desafio2.domains.LancamentosExec" />
+      <module name="trilhaBackEnd" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="desafio2.domains.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -62,6 +83,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LancamentosExec (1)" />
         <item itemvalue="Application.LancamentosExec" />
         <item itemvalue="Application.ClasseTeste" />
       </list>

@@ -1,4 +1,4 @@
-package domains;
+package desafio2.domains;
 
 import java.util.*;
 import java.util.stream.Collectors;

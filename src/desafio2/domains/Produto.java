@@ -1,4 +1,4 @@
-package domains;
+package desafio2.domains;
 
 public class Produto {
     private Long id;

@@ -1,4 +1,4 @@
-package domains;
+package desafio2.domains;
 
 public class Categoria {
     private Long id;

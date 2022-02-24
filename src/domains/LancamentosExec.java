@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 public class LancamentosExec {
     public static void main(String[] args) {
 
+
         Categoria c1 = new Categoria(1L, "Vestuário", "Aquisição de roupas");
 
         Categoria c2 = new Categoria();
@@ -13,6 +14,7 @@ public class LancamentosExec {
         c2.setNome("Salário");
         c2.setDescricao("Salário mensal referente ao mês de maio");
 
+        System.out.println("Categorias: ");
         System.out.println(c1.toString());
         System.out.println(c2.toString());
         System.out.println();
@@ -37,6 +39,7 @@ public class LancamentosExec {
         l2.setPago(false);
         l2.setCategoriaId(1L);
 
+        System.out.println("Lançamento: ");
         System.out.println(l1.toString());
         System.out.println(l2.toString());
         System.out.println();
@@ -59,6 +62,13 @@ public class LancamentosExec {
         }
 
         System.out.println();
+        System.out.println("Lista de Todos os produtos: ");
+
+        for (Produto p: produtos) {
+            System.out.println(p.toString());
+        }
+
+        System.out.println();
         System.out.println("Lista dos 3 produtos mais caros: ");
 
         produtos.sort(Comparator.comparing(Produto::getPreco).reversed());
@@ -73,15 +83,6 @@ public class LancamentosExec {
         for (Produto p :  produtosCaros){
             System.out.println(p.toString());
         }
-
-        System.out.println();
-        System.out.println("Lista de Todos os produtos: ");
-
-        for (Produto p: produtos) {
-            System.out.println(p.toString());
-        }
-
-
 
 
     }

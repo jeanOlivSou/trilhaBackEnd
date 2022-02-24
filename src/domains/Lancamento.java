@@ -94,15 +94,15 @@ public class Lancamento {
 
     @Override
     public String toString() {
-        return "Lancamento{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", tipo='" + tipo + '\'' +
-                ", montante='" + montante + '\'' +
-                ", data='" + data + '\'' +
-                ", pago=" + pago +
-                ", categoriaId=" + categoriaId +
-                '}';
+        return "{ \n " +
+                "id= " + id + ", \n" +
+                "nome= '" + nome + "', \n" +
+                "descricao= '" + descricao + "', \n" +
+                "tipo= '" + tipo + "', " +
+                "montante= '" + montante + "', \n" +
+                "data= '" + data + "', \n" +
+                "pago= " + pago + ", \n" +
+                "categoriaId=" + categoriaId + "\n" +
+                "}";
     }
 }

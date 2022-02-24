@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4fbd8deb-00c3-4ee9-bab7-6139df88a6ec" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/trilhaBackEnd.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/trilhaBackEnd.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domains/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domains/Categoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domains/Lancamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domains/Lancamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domains/LancamentosExec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domains/LancamentosExec.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domains/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domains/Produto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

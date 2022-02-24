@@ -1,6 +1,6 @@
 # Desafios da Trilha back-end Cybertron: 
 
-## Sum·rio:
+## Sum√°rio:
 
-- [Desafio 1](https://github.com/jeanOlivSou/trilhaBackEnd/tree/desafio1)
+- [Desafio 1](https://github.com/jeanOlivSou/trilhaBackEnd/tree/desafio1/src/desafio1)
 - [Desafio 2](https://github.com/jeanOlivSou/trilhaBackEnd/tree/desafio2/src/desafio2)

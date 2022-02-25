@@ -1,31 +1,31 @@
 ## Desafio 3:
 
-- **O que È o protocolo de comunicaÁ„o HTTP e como ele funciona? :**
+- **O que √© o protocolo de comunica√ß√£o HTTP e como ele funciona? :**
 
-  > R - … o protocolo da camada de aplicaÁ„o que permite comunicaÁ„o a um servidor 
-  > atravÈs de uma URL no navegador para obter-se conte˙do da World Wide Web e funciona
-  > atravÈs de requisiÁıes do lado do cliente.
+  > R - √â o protocolo da camada de aplica√ß√£o que permite comunica√ß√£o a um servidor 
+  > atrav√©s de uma URL no navegador para obter-se conte√∫do da World Wide Web e funciona
+  > atrav√©s de requisi√ß√µes do lado do cliente.
   
 
-- **O que È REST, e qual È a sua relaÁ„o com o protocolo HTTP? :**
+- **O que √© REST, e qual √© a sua rela√ß√£o com o protocolo HTTP? :**
 
-  > R- … uma tÈcnica de arquitetura de software na qual consiste em um 
-  > conjunto de regras a serem utilizadas na criaÁ„o de web services 
-  > que ir„o realizar as requisiÁıes do HTTP.
+  > R- √â uma t√©cnica de arquitetura de software na qual consiste em um 
+  > conjunto de regras a serem utilizadas na cria√ß√£o de web services 
+  > que ir√£o realizar as requisi√ß√µes do HTTP.
   
 
-- **O que È Web API, e qual È a sua relaÁ„o com REST? :**
+- **O que √© Web API, e qual √© a sua rela√ß√£o com REST? :**
 
-  > R -  … uma interface que consiste em um mais endpoints que facilitam a
-  > construÁ„o das regras do REST para realizar as requisiÁıes HTTP.
+  > R -  √â uma interface que consiste em um mais endpoints que facilitam a
+  > constru√ß√£o das regras do REST para realizar as requisi√ß√µes HTTP.
 
-- **Liste todos os mÈtodos de solicitaÁıes HTTP utilizados pelo padr„o REST e suas
+- **Liste todos os m√©todos de solicita√ß√µes HTTP utilizados pelo padr√£o REST e suas
   respectivas finalidades:**
 
-| RequisiÁ„o HTTP |                                                     DescriÁ„o                                                      |
+| Requisi√ß√£o HTTP |                                                     Descri√ß√£o                                                      |
 |:---------------:|:------------------------------------------------------------------------------------------------------------------:|
-|      `GET`      | … a requisiÁ„o mais simples, ao solicitar esta requisiÁ„o, retorna o objeto requisitado ou um conjunto de objetos. |
-|     `POST`      |                                 Cria um objeto ao ser solicitado atravÈs do body.                                  |
+|      `GET`      | √â a requisi√ß√£o mais simples, ao solicitar esta requisi√ß√£o, retorna o objeto requisitado ou um conjunto de objetos. |
+|     `POST`      |                                 Cria um objeto ao ser solicitado atrav√©s do body.                                  |
 |    `DELETE`     |                                 Deleta o objeto  solicitado  ou todos os objetos.                                  |
-|      `PUT`      |                   Atualiza um objeto solicitado, porÈm substituindo todos os elementos do body.                    |
-|   
+|      `PUT`      |                   Atualiza um objeto solicitado, por√©m substituindo todos os elementos do body.                    |
+   

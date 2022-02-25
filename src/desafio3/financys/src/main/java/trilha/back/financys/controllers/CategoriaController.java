@@ -25,7 +25,7 @@ public class CategoriaController {
 
     @PostMapping
     public ResponseEntity<Long> create(@RequestBody Categoria categoria){
-        categoria.setId(categoria.getId());
+        categorias.add(categoria);
 
         return ResponseEntity
                 .created(null)
@@ -34,19 +34,7 @@ public class CategoriaController {
 
     @GetMapping
     public ResponseEntity<List<Categoria>> read(){
-        Categoria c1 =
-                new Categoria(
-                        1L,
-                        "Vestuário",
-                        "Aquisição de roupas");
 
-        Categoria c2 = new Categoria();
-        c2.setId(2L);
-        c2.setNome("Salário");
-        c2.setDescricao("Salário mensal referente ao mês de maio");
-
-
-        setCategorias(Arrays.asList(c1, c2));
         return ResponseEntity.ok(getCategorias());
     }
 

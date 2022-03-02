@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4fbd8deb-00c3-4ee9-bab7-6139df88a6ec" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/desafio3/financys/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio3/financys/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/desafio3/financys/src/main/java/trilha/back/financys/controllers/CategoriaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio3/financys/src/main/java/trilha/back/financys/controllers/CategoriaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/desafio3/financys/src/main/java/trilha/back/financys/controllers/LancamentoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio3/financys/src/main/java/trilha/back/financys/controllers/LancamentoController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

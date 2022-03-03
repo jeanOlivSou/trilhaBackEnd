@@ -1,4 +1,6 @@
 package trilha.back.financys.repositories;
 
-public interface CategoriaRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CategoriaRepository extends JpaRepository<CategoriaRepository, Long> {
 }

@@ -46,4 +46,18 @@ public class LancamentoController {
         return ResponseEntity.ok(getLancamentos());
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Lancamento>
+    update(@PathVariable Long id, @RequestBody Lancamento lancamento){
+
+        return ResponseEntity.ok(lancamento);
+    }
+
+
+    @DeleteMapping("/{id}")
+    public void delete(){
+        ResponseEntity.ok();
+    }
+
+
 }

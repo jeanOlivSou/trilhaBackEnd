@@ -1,6 +1,12 @@
 package trilha.back.financys.domains;
 
+import javax.persistence.*;
+
+@Entity
 public class Lancamento {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private String descricao;
@@ -8,14 +14,16 @@ public class Lancamento {
     private String montante;
     private String data;
     private Boolean pago;
-    private Long categoriaId;
+
+    @ManyToOne
+    private Categoria categoria;
 
     public Lancamento() {
     }
 
     public Lancamento(Long id, String nome, String descricao,
                       String tipo, String montante, String data,
-                      Boolean pago, Long categoriaId) {
+                      Boolean pago, Categoria categoria) {
 
         this.id = id;
         this.nome = nome;
@@ -24,7 +32,7 @@ public class Lancamento {
         this.montante = montante;
         this.data = data;
         this.pago = pago;
-        this.categoriaId = categoriaId;
+        this.categoria = categoria;
     }
 
     public Long getId() {
@@ -83,12 +91,12 @@ public class Lancamento {
         this.pago = pago;
     }
 
-    public Long getCategoriaId() {
-        return categoriaId;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    public void setCategoriaId(Long categoriaId) {
-        this.categoriaId = categoriaId;
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
     @Override
@@ -101,7 +109,7 @@ public class Lancamento {
                 "montante= '" + montante + "', \n" +
                 "data= '" + data + "', \n" +
                 "pago= " + pago + ", \n" +
-                "categoriaId=" + categoriaId + "\n" +
+                "categoria=" + categoria + "\n" +
                 "}";
     }
 }

@@ -1,31 +1,29 @@
-## Desafio 3:
+## Desafio 4:
 
-- **O que é o protocolo de comunicação HTTP e como ele funciona? :**
 
-  > R - É o protocolo da camada de aplicação que permite comunicação a um servidor 
-  > através de uma URL no navegador para obter-se conteúdo da World Wide Web e funciona
-  > através de requisições do lado do cliente.
+- **O que é JDBC? :**
+  > R - É uma API Java que auxiliam no envio de intruções SQL para
+  > um banco de dados relacional.
+- **O que é ORM, cite 3 exemplos? :**
+  > R - É um conjunto de técnicas para mapeamento de objeto relacional
+  > que permite mapear os objetos de uma classe e representá-los como dados. Alguns deles são:
   
+  * Hibernate
+  * EclipseLink
+  * Entity Framework(.NET)
 
-- **O que é REST, e qual é a sua relação com o protocolo HTTP? :**
-
-  > R- É uma técnica de arquitetura de software na qual consiste em um 
-  > conjunto de regras a serem utilizadas na criação de web services 
-  > que irão realizar as requisições do HTTP.
   
+- **O que é JPA e qual é a sua relação com os ORM’s? :**
+  > R - JPA é um framework utilizado para persistir dados no Java
+  > que são mapeados por uma ORM que geralmente é o Hibernate.
 
-- **O que é Web API, e qual é a sua relação com REST? :**
 
-  > R -  É uma interface que consiste em um mais endpoints que facilitam a
-  > construção das regras do REST para realizar as requisições HTTP.
+- **O que é Spring Data? :**
+  > R - Recurso do Spring que traz um conjunto de funcionalidades
+  > para acesso e manipulação de dados em conjunto com o JPA.
 
-- **Liste todos os métodos de solicitações HTTP utilizados pelo padrão REST e suas
-  respectivas finalidades:**
+- **O que caracteriza um projeto “CRUD básico”? :**
 
-| Requisição HTTP |                                                     Descrição                                                      |
-|:---------------:|:------------------------------------------------------------------------------------------------------------------:|
-|      `GET`      | É a requisição mais simples, ao solicitar esta requisição, retorna o objeto requisitado ou um conjunto de objetos. |
-|     `POST`      |                                 Cria um objeto ao ser solicitado através do body.                                  |
-|    `DELETE`     |                                 Deleta o objeto  solicitado  ou todos os objetos.                                  |
-|      `PUT`      |                   Atualiza um objeto solicitado, porém substituindo todos os elementos do body.                    |
-   
+  > R - Um CRUD consiste em conjunto de métodos que são utilizados
+  > em um sistema para manipulação, acesso e exclusão de dados em um banco de dados.
+  > E sua sigla é um acrônomo para Create Retrieve Update Delete.

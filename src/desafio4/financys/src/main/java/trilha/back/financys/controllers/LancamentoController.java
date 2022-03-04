@@ -31,7 +31,7 @@ public class LancamentoController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Lancamento>
-    update(@PathVariable Long id, @RequestBody Lancamento lancamento){
+    update(@RequestBody Lancamento lancamento, @PathVariable Long id){
 
         if (lRepo.findById(id).isPresent()){
 

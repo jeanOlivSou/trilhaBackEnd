@@ -28,7 +28,7 @@ public class CategoriaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Categoria> update(@RequestBody Categoria categoria, Long id){
+    public ResponseEntity<Categoria> update(@RequestBody Categoria categoria, @PathVariable Long id){
 
         if (catRepo.findById(id).isPresent()){
             Categoria categoriaObt = catRepo.findById(id).get();

@@ -6,15 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4fbd8deb-00c3-4ee9-bab7-6139df88a6ec" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/desafio4/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio4/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/desafio4/financys/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio4/financys/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/desafio4/financys/src/main/java/trilha/back/financys/controllers/CategoriaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio4/financys/src/main/java/trilha/back/financys/controllers/CategoriaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/desafio4/financys/src/main/java/trilha/back/financys/controllers/LancamentoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio4/financys/src/main/java/trilha/back/financys/controllers/LancamentoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/desafio4/financys/src/main/java/trilha/back/financys/domains/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio4/financys/src/main/java/trilha/back/financys/domains/Categoria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/desafio4/financys/src/main/java/trilha/back/financys/domains/Lancamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio4/financys/src/main/java/trilha/back/financys/domains/Lancamento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/desafio4/financys/src/main/java/trilha/back/financys/repositories/CategoriaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio4/financys/src/main/java/trilha/back/financys/repositories/CategoriaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/desafio4/financys/src/main/java/trilha/back/financys/repositories/LancamentoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio4/financys/src/main/java/trilha/back/financys/repositories/LancamentoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/desafio4/financys/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio4/financys/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

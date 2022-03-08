@@ -7,6 +7,5 @@ import trilha.back.financys.domains.Categoria;
 
 @Repository
 public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
-
+    Categoria findByNome(String nome);
 }
-

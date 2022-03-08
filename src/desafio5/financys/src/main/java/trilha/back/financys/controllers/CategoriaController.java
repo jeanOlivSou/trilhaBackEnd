@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import trilha.back.financys.domains.Categoria;
 import trilha.back.financys.repositories.CategoriaRepository;
+import trilha.back.financys.services.CategoriaService;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -14,57 +15,53 @@ import java.util.NoSuchElementException;
 public class CategoriaController {
 
     @Autowired
-    CategoriaRepository catRepo;
+    private CategoriaService catService;
 
 
     @PostMapping
     public ResponseEntity<Categoria> create(@RequestBody Categoria categoria){
 
-        catRepo.save(categoria);
+        Categoria categoriaCriada = catService.create(categoria);
 
         return ResponseEntity
                 .created(null)
-                .body(categoria);
+                .body(categoriaCriada);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Categoria> update(@RequestBody Categoria categoria, @PathVariable Long id){
 
-        if (catRepo.findById(id).isPresent()){
-            Categoria categoriaObt = catRepo.findById(id).get();
+        Categoria categoriaAtual = catService.update(categoria, id);
 
-            categoriaObt.setNome(categoria.getNome());
-            categoriaObt.setDescricao(categoria.getDescricao());
-
-            catRepo.save(categoriaObt);
-
-            return ResponseEntity.ok(categoriaObt);
-        }
-
-        else {
-            throw new NoSuchElementException("Categoria não encontrada");
-        }
+        return ResponseEntity.ok(categoriaAtual);
 
     }
 
     @GetMapping
     public ResponseEntity<List<Categoria>> read(){
-        return ResponseEntity.ok(catRepo.findAll());
+        return ResponseEntity.ok(catService.read());
     }
 
 
     @GetMapping("/{id}")
     public ResponseEntity<Categoria> readById(@PathVariable Long id){
-        return ResponseEntity.ok(catRepo.findById(id).get());
+        return ResponseEntity.ok(catService.readById(id));
+    }
+
+    @GetMapping("/nome/{nome}")
+    public ResponseEntity<String> idCategoriaByNome(@PathVariable String nome){
+        return ResponseEntity.ok(catService.idCategoriaByNome(nome.trim()));
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id){
 
-        Categoria categoriaObt = catRepo.findById(id).get();
+        catService.delete(id);
 
         ResponseEntity.ok();
-        catRepo.delete(categoriaObt);
+
     }
+
+
 
 }

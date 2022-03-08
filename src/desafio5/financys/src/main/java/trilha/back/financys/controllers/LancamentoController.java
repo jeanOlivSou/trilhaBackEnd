@@ -4,90 +4,57 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import trilha.back.financys.domains.Lancamento;
-import trilha.back.financys.repositories.LancamentoRepository;
+import trilha.back.financys.services.LancamentoService;
 
-
-import java.util.Comparator;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/lancamentos")
 public class LancamentoController {
 
     @Autowired
-    LancamentoRepository lRepo;
+    private LancamentoService lService;
 
     @PostMapping
-    public ResponseEntity<Lancamento> create(@RequestBody Lancamento lancamento){
+    public ResponseEntity<Lancamento> create(@RequestBody Lancamento lancamento) {
 
-        lRepo.save(lancamento);
+        Lancamento lcriado = lService.create(lancamento);
 
         return ResponseEntity
                 .created(null)
-                .body(lancamento);
+                .body(lcriado);
 
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Lancamento>
-    update(@RequestBody Lancamento lancamento, @PathVariable Long id){
+    update(@RequestBody Lancamento lancamento, @PathVariable Long id) {
 
-        if (lRepo.findById(id).isPresent()){
+        Lancamento lAtualizado = lService.update(lancamento, id);
 
-            Lancamento lancamentoObt = lRepo.findById(id).get();
-
-            lancamentoObt.setNome(lancamento.getNome());
-            lancamentoObt.setDescricao(lancamento.getDescricao());
-            lancamentoObt.setTipo(lancamento.getTipo());
-            lancamentoObt.setMontante(lancamento.getMontante());
-            lancamentoObt.setData(lancamento.getData());
-            lancamentoObt.setPago(lancamento.isPago());
-            lancamentoObt.setCategoria(lancamento.getCategoria());
-
-            lRepo.save(lancamentoObt);
-
-            return ResponseEntity.ok(lancamentoObt);
-        }
-
-        else {
-            throw new NoSuchElementException("Lançamento não encontrado");
-        }
-
+        return ResponseEntity.ok(lAtualizado);
     }
 
     @GetMapping
-    public ResponseEntity<List<Lancamento>> read(){
+    public ResponseEntity<List<Lancamento>> read() {
 
-        List<Lancamento> listaLancamento = lRepo.findAll();
-
-        listaLancamento.sort(Comparator.comparing(Lancamento::getData));
-
-        return ResponseEntity.ok(listaLancamento);
+        return ResponseEntity.ok(lService.read());
     }
 
     @GetMapping("/pago")
-    public ResponseEntity<List<Lancamento>> readByPago(@RequestParam Boolean pago){
-
-        List<Lancamento> lancamentoLista = lRepo.findByPago(pago);
-
-        lancamentoLista.sort(Comparator.comparing(Lancamento::getData));
-
-        return ResponseEntity.ok(lancamentoLista);
+    public ResponseEntity<List<Lancamento>> readByPago(@RequestParam Boolean pago) {
+        return ResponseEntity.ok(lService.readByPago(pago));
     }
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<Lancamento> readById(@PathVariable Long id){
-        return ResponseEntity.ok(lRepo.findById(id).get());
+    public ResponseEntity<Lancamento> readById(@PathVariable Long id) {
+        return ResponseEntity.ok(lService.readByid(id));
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id){
-        Lancamento lancamentoObt = lRepo.findById(id).get();
-
-        lRepo.delete(lancamentoObt);
-
+    public void delete(@PathVariable Long id) {
+        lService.delete(id);
         ResponseEntity.ok();
     }
 

@@ -21,9 +21,15 @@ public class LancamentoService {
     CategoriaRepository catRepo;
 
     public Lancamento create(Lancamento lancamento) {
+        if (validaCategoriaById(lancamento.getCategoria().getId()) == false){
+            throw new RuntimeException("Não foi possível criar lançamento," +
+                    " categoria informada não encontrada");
+        }
 
-        return lRepo.save(lancamento);
+        else {
 
+            return lRepo.save(lancamento);
+        }
     }
 
 

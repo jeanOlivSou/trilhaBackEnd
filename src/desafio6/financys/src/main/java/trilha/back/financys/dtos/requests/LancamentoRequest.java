@@ -1,7 +1,5 @@
 package trilha.back.financys.dtos.requests;
 
-import trilha.back.financys.domains.Categoria;
-
 public class LancamentoRequest {
     private Long id;
     private String nome;

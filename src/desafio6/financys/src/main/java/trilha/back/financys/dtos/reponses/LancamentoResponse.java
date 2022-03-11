@@ -9,12 +9,12 @@ public class LancamentoResponse {
     private String montante;
     private String data;
     private Boolean pago;
-    private CategoriaRequest categoria;
+    private CategoriaResponse categoria;
 
     public LancamentoResponse() {
     }
 
-    public LancamentoResponse(String nome, String descricao, String tipo, String montante, String data, Boolean pago, CategoriaRequest categoria) {
+    public LancamentoResponse(String nome, String descricao, String tipo, String montante, String data, Boolean pago, CategoriaResponse categoria) {
         this.nome = nome;
         this.descricao = descricao;
         this.tipo = tipo;
@@ -72,11 +72,11 @@ public class LancamentoResponse {
         this.pago = pago;
     }
 
-    public CategoriaRequest getCategoria() {
+    public CategoriaResponse getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(CategoriaRequest categoria) {
+    public void setCategoria(CategoriaResponse categoria) {
         this.categoria = categoria;
     }
 

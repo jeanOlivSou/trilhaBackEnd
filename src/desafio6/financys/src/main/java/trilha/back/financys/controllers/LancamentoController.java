@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import trilha.back.financys.domains.Lancamento;
+import trilha.back.financys.dtos.reponses.LancamentoChartResponse;
+import trilha.back.financys.dtos.reponses.LancamentoResponse;
+import trilha.back.financys.dtos.requests.LancamentoRequest;
 import trilha.back.financys.services.LancamentoService;
 
 import java.util.List;
@@ -16,40 +19,43 @@ public class LancamentoController {
     private LancamentoService lService;
 
     @PostMapping
-    public ResponseEntity<Lancamento> create(@RequestBody Lancamento lancamento) {
-
-        Lancamento lcriado = lService.create(lancamento);
+    public ResponseEntity<LancamentoResponse> create(@RequestBody LancamentoRequest lancamento) {
 
         return ResponseEntity
                 .created(null)
-                .body(lcriado);
+                .body(lService.create(lancamento));
 
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Lancamento>
-    update(@RequestBody Lancamento lancamento, @PathVariable Long id) {
+    public ResponseEntity<LancamentoResponse>
+    update(@RequestBody LancamentoRequest lancamentoRequest, @PathVariable Long id) {
 
-        Lancamento lAtualizado = lService.update(lancamento, id);
+        LancamentoResponse lAtualizado = lService.update(lancamentoRequest, id);
 
         return ResponseEntity.ok(lAtualizado);
     }
 
     @GetMapping
-    public ResponseEntity<List<Lancamento>> read() {
+    public ResponseEntity<List<LancamentoResponse>> read() {
 
         return ResponseEntity.ok(lService.read());
     }
 
     @GetMapping("/pago")
-    public ResponseEntity<List<Lancamento>> readByPago(@RequestParam Boolean pago) {
+    public ResponseEntity<List<LancamentoResponse>> readByPago(@RequestParam Boolean pago) {
         return ResponseEntity.ok(lService.readByPago(pago));
     }
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<Lancamento> readById(@PathVariable Long id) {
+    public ResponseEntity<LancamentoResponse> readById(@PathVariable Long id) {
         return ResponseEntity.ok(lService.readByid(id));
+    }
+
+    @GetMapping("/chart")
+    public ResponseEntity<List<LancamentoChartResponse>> chart(){
+        return ResponseEntity.ok(lService.chart());
     }
 
     @DeleteMapping("/{id}")
@@ -57,6 +63,8 @@ public class LancamentoController {
         lService.delete(id);
         ResponseEntity.ok();
     }
+
+
 
 
 }

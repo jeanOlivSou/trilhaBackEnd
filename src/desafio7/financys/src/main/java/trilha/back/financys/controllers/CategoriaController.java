@@ -7,6 +7,7 @@ import trilha.back.financys.dtos.reponses.CategoriaResponse;
 import trilha.back.financys.dtos.requests.CategoriaRequest;
 import trilha.back.financys.services.CategoriaService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -14,44 +15,44 @@ import java.util.List;
 public class CategoriaController {
 
     @Autowired
-    private CategoriaService catService;
+    private CategoriaService categoriaService;
 
     @PostMapping
-    public ResponseEntity<CategoriaResponse> create(@RequestBody CategoriaRequest categoriaRequest){
+    public ResponseEntity<CategoriaResponse> create(@RequestBody @Valid CategoriaRequest categoriaRequest){
 
         return ResponseEntity
                 .created(null)
-                .body(catService.create(categoriaRequest));
+                .body(categoriaService.create(categoriaRequest));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<CategoriaResponse>
-    update(@RequestBody CategoriaRequest categoriaRequest, @PathVariable Long id){
+    update(@RequestBody @Valid CategoriaRequest categoriaRequest, @PathVariable Long id){
 
-        return ResponseEntity.ok(catService.update(categoriaRequest, id));
+        return ResponseEntity.ok(categoriaService.update(categoriaRequest, id));
 
     }
 
     @GetMapping
     public ResponseEntity<List<CategoriaResponse>> read(){
-        return ResponseEntity.ok(catService.read());
+        return ResponseEntity.ok(categoriaService.read());
     }
 
 
     @GetMapping("/{id}")
     public ResponseEntity<CategoriaResponse> readById(@PathVariable Long id){
-        return ResponseEntity.ok(catService.readById(id));
+        return ResponseEntity.ok(categoriaService.readById(id));
     }
 
     @GetMapping("/nome/{nome}")
     public ResponseEntity<String> idCategoriaByNome(@PathVariable String nome){
-        return ResponseEntity.ok(catService.idCategoriaByNome(nome.trim()));
+        return ResponseEntity.ok(categoriaService.idCategoriaByNome(nome.trim()));
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id){
 
-        catService.delete(id);
+        categoriaService.delete(id);
 
         ResponseEntity.ok();
 

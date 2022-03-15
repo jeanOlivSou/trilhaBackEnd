@@ -1,23 +1,34 @@
 package trilha.back.financys.dtos.requests;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class LancamentoRequest {
     private Long id;
 
-    @NotBlank(message = "")
-    @Size(min = 3, max = 45)
+    @NotBlank(message = "{lancamento.campo.notblank}")
+    @Size(min = 3, max = 45, message = "{lancamento.nome.size}")
     private String nome;
 
-    @NotBlank(message = "")
-    @Size(min = 15, max = 150, message = "")
+    @NotBlank(message = "{lancamento.campo.notblank}")
+    @Size(min = 15, max = 150, message = "{lancamento.descricao.size}")
     private String descricao;
 
+    @NotBlank(message = "{lancamento.campo.notblank}")
+    @Size(min = 3, max = 10, message = "{lancamento.tipo.size}")
     private String tipo;
+
+    @NotBlank(message = "{lancamento.campo.notblank}")
+    @Pattern(regexp = "^[1-9][0-9]+(,[0-9]{1,2})$", message = "{lancamento.montante.pattern}")
     private String montante;
+
+    @NotBlank(message = "{lancamento.campo.notblank}")
     private String data;
+
+    @NotBlank(message = "{lancamento.campo.notblank}")
     private Boolean pago;
+
     private CategoriaRequest categoria;
 
     public LancamentoRequest() {

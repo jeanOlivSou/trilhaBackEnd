@@ -16,7 +16,7 @@ import java.util.NoSuchElementException;
 public class CategoriaService {
 
     @Autowired
-    private CategoriaRepository catRepo;
+    private CategoriaRepository categoriaRepository;
 
     @Autowired
     private CategoriaMapper categoriaMapper;
@@ -27,19 +27,19 @@ public class CategoriaService {
 
         CategoriaResponse categoriaResponse = categoriaMapper.toResponse(categoria);
 
-        catRepo.save(categoria);
+        categoriaRepository.save(categoria);
 
         return categoriaResponse;
     }
 
     public CategoriaResponse update(CategoriaRequest categoriaRequest, Long id) {
 
-        if (catRepo.findById(id).isPresent()) {
+        if (categoriaRepository.findById(id).isPresent()) {
 
-            Categoria categoriaObt = catRepo.findById(id).get();
+            Categoria categoriaObt = categoriaRepository.findById(id).get();
 
             categoriaMapper.update(categoriaRequest, categoriaObt);
-            catRepo.save(categoriaObt);
+            categoriaRepository.save(categoriaObt);
 
             return categoriaMapper.toResponse(categoriaObt);
         } else {
@@ -51,7 +51,7 @@ public class CategoriaService {
 
         List<CategoriaResponse> categoriaResponseLista = new ArrayList<>();
 
-        catRepo.findAll().stream().forEach(
+        categoriaRepository.findAll().stream().forEach(
                 categoria ->
                         categoriaResponseLista
                                 .add(categoriaMapper.toResponse(categoria))
@@ -62,20 +62,20 @@ public class CategoriaService {
 
     public CategoriaResponse readById(Long id) {
 
-        Categoria categoriaObt = catRepo.findById(id).get();
+        Categoria categoriaObt = categoriaRepository.findById(id).get();
 
         return categoriaMapper.toResponse(categoriaObt);
     }
 
     public void delete(Long id) {
 
-        Categoria categoriaObt = catRepo.findById(id).get();
+        Categoria categoriaObt = categoriaRepository.findById(id).get();
 
-        catRepo.delete(categoriaObt);
+        categoriaRepository.delete(categoriaObt);
     }
 
     public String idCategoriaByNome(String nome) {
-        Categoria categoriaObt = catRepo.findByNome(nome);
+        Categoria categoriaObt = categoriaRepository.findByNome(nome);
 
         return "O id da categoria " + categoriaObt.getNome() + " é : " + categoriaObt.getId();
 

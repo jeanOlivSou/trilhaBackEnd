@@ -15,16 +15,17 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.concurrent.atomic.AtomicReference;
 
 
 @Service
 public class LancamentoService {
 
     @Autowired
-    private LancamentoRepository lRepo;
+    private LancamentoRepository lancamentoRepository;
 
     @Autowired
-    CategoriaRepository catRepo;
+    CategoriaRepository categoriaRepository;
 
     @Autowired
     LancamentoMapper lancamentoMapper;
@@ -41,7 +42,7 @@ public class LancamentoService {
 
             LancamentoResponse lancamentoResponse = lancamentoMapper.toResponse(lancamento);
 
-            lRepo.save(lancamento);
+            lancamentoRepository.save(lancamento);
 
             return lancamentoResponse;
         }
@@ -49,13 +50,13 @@ public class LancamentoService {
 
 
     public LancamentoResponse update(LancamentoRequest lancamentoRequest, Long id) {
-        if (lRepo.findById(id).isPresent()) {
+        if (lancamentoRepository.findById(id).isPresent()) {
 
-            Lancamento lancamento = lRepo.findById(id).get();
+            Lancamento lancamento = lancamentoRepository.findById(id).get();
 
             lancamentoMapper.update(lancamentoRequest, lancamento);
 
-            lRepo.save(lancamento);
+            lancamentoRepository.save(lancamento);
 
             return lancamentoMapper.toResponse(lancamento);
         }
@@ -68,7 +69,7 @@ public class LancamentoService {
     public List<LancamentoResponse> read() {
         List<LancamentoResponse> lResponseLista = new ArrayList<>();
 
-        lRepo.findAll().stream().forEach(
+        lancamentoRepository.findAll().stream().forEach(
                 lancamento ->
                         lResponseLista
                                 .add(lancamentoMapper.toResponse(lancamento))
@@ -83,7 +84,7 @@ public class LancamentoService {
 
         List<LancamentoResponse> lResponseLista =  new ArrayList<>();
 
-                lRepo.findByPago(pago).stream().forEach(
+                lancamentoRepository.findByPago(pago).stream().forEach(
                         lancamento ->
                                 lResponseLista
                                         .add(lancamentoMapper.toResponse(lancamento))
@@ -96,22 +97,22 @@ public class LancamentoService {
 
     public LancamentoResponse readByid(Long id) {
 
-        Lancamento lancamentoObt = lRepo.findById(id).get();
+        Lancamento lancamentoObt = lancamentoRepository.findById(id).get();
 
         return lancamentoMapper.toResponse(lancamentoObt);
     }
 
     public void delete(Long id) {
 
-        Lancamento lancamentoObt = lRepo.findById(id).get();
+        Lancamento lancamentoObt = lancamentoRepository.findById(id).get();
 
-        lRepo.delete(lancamentoObt);
+        lancamentoRepository.delete(lancamentoObt);
 
     }
 
     public Boolean validaCategoriaById(Long id){
 
-        if (catRepo.findById(id).isPresent()){
+        if (categoriaRepository.findById(id).isPresent()){
             return true;
         }
         else {
@@ -120,37 +121,66 @@ public class LancamentoService {
     }
 
     public List<LancamentoChartResponse> chart(){
-        List<Categoria> categoriaLista = catRepo.findAll();
-        List<Lancamento> lancamentoLista = lRepo.findAll();
+        List<Categoria> categoriaLista = categoriaRepository.findAll();
+        List<Lancamento> lancamentoLista = lancamentoRepository.findAll();
 
         List<LancamentoChartResponse> listaChart = new ArrayList<>();
 
-        for (Categoria categoria : categoriaLista){
-            Double total = 0.0;
+        categoriaLista.stream().forEach(
+                categoria -> {
+                    AtomicReference<Double> total = new AtomicReference<>(0.0);
+                    LancamentoChartResponse lancamentoChartResponse = new LancamentoChartResponse();
+                    lancamentoChartResponse.setNome(categoria.getNome());
 
-            LancamentoChartResponse lancamentoChartResponse = new LancamentoChartResponse();
+                    lancamentoLista.stream().forEach(
+                            lancamento -> {
+                                if (lancamento.getCategoria().getId() == categoria.getId()){
+                                    String montante = lancamento.getMontante().replace(",", ".");
 
-            lancamentoChartResponse.setNome(categoria.getNome());
+                                    Double somaMontante = Double.parseDouble(montante);
 
-            for (Lancamento lancamento : lancamentoLista){
-                if(lancamento.getCategoria().getId() == categoria.getId()){
+                                    total.updateAndGet(v -> v + somaMontante);
 
-                    String montante = lancamento.getMontante().replace(",", ".");
+                                    lancamentoChartResponse.setTipo(lancamento.getTipo());
+                                    lancamentoChartResponse.setTotal(total.get());
 
-                    Double somaMontante = Double.parseDouble(montante);
 
-                    total += somaMontante;
+                                }
+                            }
+                    );
 
-                    lancamentoChartResponse.setTotal(total);
-                    lancamentoChartResponse.setTipo(lancamento.getTipo());
-
+                    listaChart.add(lancamentoChartResponse);
                 }
+        );
 
-            }
 
-            listaChart.add(lancamentoChartResponse);
 
-        }
+//        for (Categoria categoria : categoriaLista){
+//            Double total = 0.0;
+//
+//            LancamentoChartResponse lancamentoChartResponse = new LancamentoChartResponse();
+//
+//            lancamentoChartResponse.setNome(categoria.getNome());
+//
+//            for (Lancamento lancamento : lancamentoLista){
+//                if(lancamento.getCategoria().getId() == categoria.getId()){
+//
+//                    String montante = lancamento.getMontante().replace(",", ".");
+//
+//                    Double somaMontante = Double.parseDouble(montante);
+//
+//                    total += somaMontante;
+//
+//                    lancamentoChartResponse.setTotal(total);
+//                    lancamentoChartResponse.setTipo(lancamento.getTipo());
+//
+//                }
+//
+//            }
+//
+//            listaChart.add(lancamentoChartResponse);
+//
+//        }
 
         return listaChart;
     }

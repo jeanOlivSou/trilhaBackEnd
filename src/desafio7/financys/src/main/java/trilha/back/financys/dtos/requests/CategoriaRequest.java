@@ -7,12 +7,12 @@ public class CategoriaRequest {
 
         private Long id;
 
-        @NotBlank(message = "")
-        @Size(min = 3, max = 15, message = "")
+        @NotBlank(message = "{categoria.campo.notblank}")
+        @Size(min = 3, max = 15, message = "{categoria.nome.size}")
         private String nome;
 
-        @NotBlank(message = "")
-        @Size(min = 15, max = 50, message = "")
+        @NotBlank(message = "{categoria.campo.notblank}")
+        @Size(min = 15, max = 50, message = "{categoria.descricao.size}")
         private String descricao;
 
         public CategoriaRequest() {

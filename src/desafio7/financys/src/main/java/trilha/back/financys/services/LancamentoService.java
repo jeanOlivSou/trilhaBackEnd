@@ -139,7 +139,7 @@ public class LancamentoService {
 
                                     Double somaMontante = Double.parseDouble(montante);
 
-                                    total.updateAndGet(v -> v + somaMontante);
+                                    total.updateAndGet(valor -> valor + somaMontante);
 
                                     lancamentoChartResponse.setTipo(lancamento.getTipo());
                                     lancamentoChartResponse.setTotal(total.get());

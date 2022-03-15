@@ -1,6 +1,7 @@
 package trilha.back.financys.dtos.requests;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -20,13 +21,13 @@ public class LancamentoRequest {
     private String tipo;
 
     @NotBlank(message = "{lancamento.campo.notblank}")
-    @Pattern(regexp = "^[1-9][0-9]+(,[0-9]{1,2})$", message = "{lancamento.montante.pattern}")
+    @Pattern(regexp = "^([1-9][0-9]*)+(,[0-9]{1,2})$", message = "{lancamento.montante.pattern}")
     private String montante;
 
     @NotBlank(message = "{lancamento.campo.notblank}")
     private String data;
 
-    @NotBlank(message = "{lancamento.campo.notblank}")
+    @NotNull(message = "{lancamento.campo.notblank}")
     private Boolean pago;
 
     private CategoriaRequest categoria;

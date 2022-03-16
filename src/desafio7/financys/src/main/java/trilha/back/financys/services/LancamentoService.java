@@ -31,12 +31,10 @@ public class LancamentoService {
     LancamentoMapper lancamentoMapper;
 
     public LancamentoResponse create(LancamentoRequest lancamentoRequest) {
-        if (validaCategoriaById(lancamentoRequest.getCategoria().getId()) == false){
+        if (validaCategoriaById(lancamentoRequest.getCategoria().getId()) == false) {
             throw new RuntimeException("Não foi possível criar lançamento," +
                     " categoria informada não encontrada");
-        }
-
-        else {
+        } else {
 
             Lancamento lancamento = lancamentoMapper.toDomain(lancamentoRequest);
 
@@ -59,9 +57,7 @@ public class LancamentoService {
             lancamentoRepository.save(lancamento);
 
             return lancamentoMapper.toResponse(lancamento);
-        }
-
-        else {
+        } else {
             throw new NoSuchElementException("Lançamento não encontrado");
         }
     }
@@ -82,13 +78,13 @@ public class LancamentoService {
 
     public List<LancamentoResponse> readByPago(Boolean pago) {
 
-        List<LancamentoResponse> lResponseLista =  new ArrayList<>();
+        List<LancamentoResponse> lResponseLista = new ArrayList<>();
 
-                lancamentoRepository.findByPago(pago).stream().forEach(
-                        lancamento ->
-                                lResponseLista
-                                        .add(lancamentoMapper.toResponse(lancamento))
-                );
+        lancamentoRepository.findByPago(pago).stream().forEach(
+                lancamento ->
+                        lResponseLista
+                                .add(lancamentoMapper.toResponse(lancamento))
+        );
 
         lResponseLista.sort(Comparator.comparing(LancamentoResponse::getData));
 
@@ -110,51 +106,46 @@ public class LancamentoService {
 
     }
 
-    public Boolean validaCategoriaById(Long id){
+    public Boolean validaCategoriaById(Long id) {
 
-        if (categoriaRepository.findById(id).isPresent()){
+        if (categoriaRepository.findById(id).isPresent()) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
 
-    public List<LancamentoChartResponse> chart(){
-        List<Categoria> categoriaLista = categoriaRepository.findAll();
-        List<Lancamento> lancamentoLista = lancamentoRepository.findAll();
+    public List<LancamentoChartResponse> chart() {
 
         List<LancamentoChartResponse> listaChart = new ArrayList<>();
 
-        categoriaLista.stream().forEach(
+        categoriaRepository.findAll().stream().forEach(
                 categoria -> {
                     AtomicReference<Double> total = new AtomicReference<>(0.0);
                     LancamentoChartResponse lancamentoChartResponse = new LancamentoChartResponse();
                     lancamentoChartResponse.setNome(categoria.getNome());
 
-                    lancamentoLista.stream().forEach(
-                            lancamento -> {
-                                if (lancamento.getCategoria().getId() == categoria.getId()){
-                                    String montante = lancamento.getMontante().replace(",", ".");
+                    lancamentoRepository.findAll().stream()
+                            .filter(lancamento -> lancamento.getCategoria().getId() == categoria.getId())
+                            .forEach(
+                                    lancamento -> {
+                                        String montante = lancamento.getMontante().replace(",", ".");
 
-                                    Double somaMontante = Double.parseDouble(montante);
+                                        Double somaMontante = Double.parseDouble(montante);
 
-                                    total.updateAndGet(valor -> valor + somaMontante);
+                                        total.updateAndGet(valor -> valor + somaMontante);
 
-                                    lancamentoChartResponse.setTipo(lancamento.getTipo());
-                                    lancamentoChartResponse.setTotal(total.get());
-
-
-                                }
-                            }
-                    );
+                                        lancamentoChartResponse.setTipo(lancamento.getTipo());
+                                        lancamentoChartResponse.setTotal(total.get());
+                                    }
+                            );
 
                     listaChart.add(lancamentoChartResponse);
                 }
         );
 
 
-
+//  chart v1
 //        for (Categoria categoria : categoriaLista){
 //            Double total = 0.0;
 //

@@ -8,3 +8,4 @@
 - [Desafio 4](https://github.com/jeanOlivSou/trilhaBackEnd/tree/desafio4/src/desafio4)
 - [Desafio 5](https://github.com/jeanOlivSou/trilhaBackEnd/tree/desafio5/src/desafio5)
 - [Desafio 6](https://github.com/jeanOlivSou/trilhaBackEnd/tree/desafio6/src/desafio6)
+- [Desafio 7](https://github.com/jeanOlivSou/trilhaBackEnd/tree/desafio7/src/desafio7)

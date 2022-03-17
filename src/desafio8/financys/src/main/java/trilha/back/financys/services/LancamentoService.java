@@ -7,6 +7,7 @@ import trilha.back.financys.domains.Lancamento;
 import trilha.back.financys.dtos.reponses.LancamentoChartResponse;
 import trilha.back.financys.dtos.reponses.LancamentoResponse;
 import trilha.back.financys.dtos.requests.LancamentoRequest;
+import trilha.back.financys.exceptions.DivideByZeroException;
 import trilha.back.financys.mappers.LancamentoMapper;
 import trilha.back.financys.repositories.CategoriaRepository;
 import trilha.back.financys.repositories.LancamentoRepository;
@@ -115,6 +116,43 @@ public class LancamentoService {
         }
     }
 
+    public List<LancamentoChartResponse> chartv1() {
+        List<LancamentoChartResponse> listaChart = new ArrayList<>();
+        List<Lancamento> lancamentoLista = lancamentoRepository.findAll();
+        List<Categoria> categoriaLista = categoriaRepository.findAll();
+
+        for (Categoria categoria : categoriaLista){
+            Double total = 0.0;
+
+            LancamentoChartResponse lancamentoChartResponse = new LancamentoChartResponse();
+
+            lancamentoChartResponse.setNome(categoria.getNome());
+
+            for (Lancamento lancamento : lancamentoLista){
+                if(lancamento.getCategoria().getId() == categoria.getId()){
+
+                    String montante = lancamento.getMontante().replace(",", ".");
+
+                    Double somaMontante = Double.parseDouble(montante);
+
+                    total += somaMontante;
+
+                    lancamentoChartResponse.setTotal(total);
+                    lancamentoChartResponse.setTipo(lancamento.getTipo());
+
+                }
+
+            }
+
+            listaChart.add(lancamentoChartResponse);
+
+        }
+
+        return listaChart;
+    }
+
+
+
     public List<LancamentoChartResponse> chart() {
 
         List<LancamentoChartResponse> listaChart = new ArrayList<>();
@@ -144,36 +182,17 @@ public class LancamentoService {
                 }
         );
 
-
-//  chart v1
-//        for (Categoria categoria : categoriaLista){
-//            Double total = 0.0;
-//
-//            LancamentoChartResponse lancamentoChartResponse = new LancamentoChartResponse();
-//
-//            lancamentoChartResponse.setNome(categoria.getNome());
-//
-//            for (Lancamento lancamento : lancamentoLista){
-//                if(lancamento.getCategoria().getId() == categoria.getId()){
-//
-//                    String montante = lancamento.getMontante().replace(",", ".");
-//
-//                    Double somaMontante = Double.parseDouble(montante);
-//
-//                    total += somaMontante;
-//
-//                    lancamentoChartResponse.setTotal(total);
-//                    lancamentoChartResponse.setTipo(lancamento.getTipo());
-//
-//                }
-//
-//            }
-//
-//            listaChart.add(lancamentoChartResponse);
-//
-//        }
-
         return listaChart;
+    }
+
+    public Integer calculaMedia(Integer x, Integer y){
+
+        try {
+            return (x/y);
+        }
+        catch (ArithmeticException e){
+            throw new DivideByZeroException("Não é permitido divisão por zero");
+        }
     }
 
 }

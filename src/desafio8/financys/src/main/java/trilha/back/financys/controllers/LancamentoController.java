@@ -58,6 +58,11 @@ public class LancamentoController {
         return ResponseEntity.ok(lancamentoService.chart());
     }
 
+    @GetMapping("/calcula/{x}/{y}")
+    public ResponseEntity<Integer> calculaMedia(@PathVariable Integer x, @PathVariable Integer y){
+        return ResponseEntity.ok(lancamentoService.calculaMedia(x, y));
+    }
+
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         lancamentoService.delete(id);

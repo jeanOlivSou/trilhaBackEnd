@@ -316,3 +316,8 @@
 [https://refactoring.guru/pt-br/design-patterns](https://refactoring.guru/pt-br/design-patterns)
 [http://luizricardo.org/2013/08/construindo-objetos-de-forma-inteligente-builder-pattern-e-fluent-interfaces/](http://luizricardo.org/2013/08/construindo-objetos-de-forma-inteligente-builder-pattern-e-fluent-interfaces/)
 [https://www.devmedia.com.br/padrao-de-projeto-iterator-em-java/26733](https://www.devmedia.com.br/padrao-de-projeto-iterator-em-java/26733)
+
+**Projeto refatorado :**
+
+- [DDD](https://github.com/jeanOlivSou/trilhaBackEnd/tree/trilha-back-jean-DDD/src/desafio9_DDD)
+- [Hexagonal](https://github.com/jeanOlivSou/trilhaBackEnd/tree/trilha-back-jean-clean/src/desafio9_Hex)

@@ -14,6 +14,7 @@ import trilha.back.financys.core.services.LancamentoServiceImpl;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -61,6 +62,8 @@ public class LancamentoController {
                         )
         );
 
+        lancamentoResponseLista.sort(Comparator.comparing(LancamentoResponse::getData));
+
         return ResponseEntity.ok(lancamentoResponseLista);
     }
 
@@ -73,6 +76,25 @@ public class LancamentoController {
         LancamentoResponse lancamentoResponse = lancamentoMapperDto.toResponse(lancamento);
 
         return ResponseEntity.ok(lancamentoResponse);
+    }
+
+    @GetMapping("/pago")
+    public ResponseEntity<List<LancamentoResponse>>
+    readBypago(@RequestParam Boolean pago){
+        List<Lancamento> lancamentoLista = lancamentoService.readByPago(pago);
+
+        List<LancamentoResponse> lancamentoResponseLista = new ArrayList<>();
+
+        lancamentoLista.stream().forEach(
+                lancamento -> lancamentoResponseLista.add(
+                        lancamentoMapperDto.toResponse(lancamento)
+                )
+        );
+
+        lancamentoResponseLista.sort(Comparator.comparing(LancamentoResponse::getData));
+
+        return ResponseEntity.ok(lancamentoResponseLista);
+
     }
 
     @GetMapping("/calcula/{x}/{y}")

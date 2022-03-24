@@ -64,6 +64,6 @@ public class CategoriaServiceImpl implements CategoriaServicePort {
 
         Categoria categoriaObt = categoriaRepositoryPort.findByNome(nome);
 
-        return "O id da categoria " + categoriaObt.getNome() + " é : " + categoriaObt.getNome();
+        return "O id da categoria " + categoriaObt.getNome() + " é : " + categoriaObt.getId();
     }
 }

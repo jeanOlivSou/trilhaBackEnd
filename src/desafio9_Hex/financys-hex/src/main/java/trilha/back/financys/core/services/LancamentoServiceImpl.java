@@ -1,5 +1,6 @@
 package trilha.back.financys.core.services;
 
+import trilha.back.financys.adapters.exceptions.DivideByZeroException;
 import trilha.back.financys.core.domains.Lancamento;
 import trilha.back.financys.core.ports.in.LancamentoServicePort;
 import trilha.back.financys.core.ports.out.CategoriaRepositoryPort;
@@ -82,7 +83,7 @@ public class LancamentoServiceImpl implements LancamentoServicePort {
             return (x/y);
         }
         catch (ArithmeticException e){
-            throw new RuntimeException("Não é permitido divisão por zero");
+            throw new DivideByZeroException("Não é possível dividir por zero");
         }
     }
 }

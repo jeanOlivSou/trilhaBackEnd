@@ -104,19 +104,7 @@ public class ExceptionHandle {
                 .body(defaultException);
     }
 
-
-//    @ExceptionHandler(NullPointerException.class)
-//    ResponseEntity<DefaultException> byNomeNotFound(NullPointerException e){
-//        DefaultException defaultException = new DefaultException();
-//
-//        defaultException.setMessage("Nome não encontrado");
-//        defaultException.setDateTime(LocalDateTime.now());
-//        defaultException.setStatus(HttpStatus.NOT_FOUND.value());
-//
-//        return ResponseEntity
-//                .status(defaultException.getStatus())
-//                .body(defaultException);
-//    }
+    
 
 
 

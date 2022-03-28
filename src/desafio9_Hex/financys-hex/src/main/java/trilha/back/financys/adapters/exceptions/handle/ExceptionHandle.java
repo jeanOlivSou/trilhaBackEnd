@@ -8,6 +8,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import trilha.back.financys.adapters.exceptions.DivideByZeroException;
+import trilha.back.financys.core.exceptions.NotFoundException;
 
 import java.time.LocalDateTime;
 import java.util.NoSuchElementException;
@@ -90,12 +91,11 @@ public class ExceptionHandle {
                 .body(defaultException);
     }
 
-
-    @ExceptionHandler(NullPointerException.class)
-    ResponseEntity<DefaultException> byNomeNotFound(NullPointerException e){
+    @ExceptionHandler(NotFoundException.class)
+    ResponseEntity<DefaultException> categoriaNotFound(NotFoundException e){
         DefaultException defaultException = new DefaultException();
 
-        defaultException.setMessage("Nome não encontrado");
+        defaultException.setMessage(e.getLocalizedMessage());
         defaultException.setDateTime(LocalDateTime.now());
         defaultException.setStatus(HttpStatus.NOT_FOUND.value());
 
@@ -103,6 +103,20 @@ public class ExceptionHandle {
                 .status(defaultException.getStatus())
                 .body(defaultException);
     }
+
+
+//    @ExceptionHandler(NullPointerException.class)
+//    ResponseEntity<DefaultException> byNomeNotFound(NullPointerException e){
+//        DefaultException defaultException = new DefaultException();
+//
+//        defaultException.setMessage("Nome não encontrado");
+//        defaultException.setDateTime(LocalDateTime.now());
+//        defaultException.setStatus(HttpStatus.NOT_FOUND.value());
+//
+//        return ResponseEntity
+//                .status(defaultException.getStatus())
+//                .body(defaultException);
+//    }
 
 
 

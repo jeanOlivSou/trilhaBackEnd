@@ -61,9 +61,16 @@ public class CategoriaServiceImpl implements CategoriaServicePort {
 
     @Override
     public String idCategoriaByNome(String nome) {
+        try {
+            Categoria categoriaObt = categoriaRepositoryPort.findByNome(nome);
 
-        Categoria categoriaObt = categoriaRepositoryPort.findByNome(nome);
+            return "O id da categoria " + categoriaObt.getNome() + " é : " + categoriaObt.getId();
+        }
 
-        return "O id da categoria " + categoriaObt.getNome() + " é : " + categoriaObt.getId();
+        catch (NullPointerException e){
+            throw new NotFoundException("Nome de Categoria não encontrado");
+        }
+
+
     }
 }

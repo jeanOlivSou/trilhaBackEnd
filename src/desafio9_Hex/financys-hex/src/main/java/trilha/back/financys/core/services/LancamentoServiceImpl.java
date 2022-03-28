@@ -2,6 +2,7 @@ package trilha.back.financys.core.services;
 
 import trilha.back.financys.adapters.exceptions.DivideByZeroException;
 import trilha.back.financys.core.domains.Lancamento;
+import trilha.back.financys.core.exceptions.NotFoundException;
 import trilha.back.financys.core.ports.in.LancamentoServicePort;
 import trilha.back.financys.core.ports.out.CategoriaRepositoryPort;
 import trilha.back.financys.core.ports.out.LancamentoRepositoryPort;
@@ -21,7 +22,7 @@ public class LancamentoServiceImpl implements LancamentoServicePort {
     @Override
     public Lancamento create(Lancamento lancamento) {
         if (validaCategoriaById(lancamento.getCategoria().getId()) == false){
-            throw new RuntimeException("Não foi possível criar lançamento," +
+            throw new NotFoundException("Não foi possível criar lançamento," +
                     " categoria informada não encontrada");
         }
         else {

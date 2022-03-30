@@ -11,3 +11,4 @@
 - [Desafio 7](https://github.com/jeanOlivSou/trilhaBackEnd/tree/desafio7/src/desafio7)
 - [Desafio 8](https://github.com/jeanOlivSou/trilhaBackEnd/tree/desafio8/src/desafio8)
 - [Desafio 9](https://github.com/jeanOlivSou/trilhaBackEnd/tree/desafio9/src/desafio9)
+- [Desafio 10](https://github.com/jeanOlivSou/trilhaBackEnd/tree/desafio10/src/desafio10)

@@ -7,140 +7,90 @@
 
 - **Cite 2 libs populares no Java e seu objetivo :**
 
-    - Apache commons - Possui um  conjunto de utilidades para soluções I/O para aplicações.
+    - Apache commons - Lib que Possui um  conjunto de utilidades para soluções I/O para aplicações.
     - Mockito - Lib que auxiliam na simulação de objetos durante o processo de testes sem interferir na aplicação.
   
 
-- **Quais ferramentas do Spring foram utilizadas na trilha até o momento? :**
+- **Qual é o propósito do Maven, e qual é o seu relacionamento com o arquivo pom.xml? :**
 
-   > R - Spring Boot, Spring Data JPA e Spring Web.
+   > R - Maven traz funcionalidades de automação de compilação e gerenciamento de dependências
+  > e as informações sobre o projeto para compilar o projeto bem como as informações de dependências
+  > estão presentes no arquivo **pom.xml**
 
-- **Cite 5 vantagens em utilizar Spring :**
-    1) Facilidade em desenvolvimento de aplicações em qualquer complexidade.
-    2) Servidor Built-in.
-    3) Redução de tempo de desenvolvimento.
-    4) Redução na complexidade de configuração.
-    5) Redução de acoplamento através de injeção de dependência.
+- **Qual é a diferença do Maven para o Gradle? :**
+
+   > R - O Maven é uma ferramenta de gerenciamento e compreensão de projeto de software
+  > enquanto o Gradle é um sistema de automação baseado nos conceitos do Ant e Maven,
+  > o Maven faz uso de XML para gerenciar as informações para a construção do projeto
+  > e suas dependências enquanto o Gradle faz isso por meio de scripts.
+
   
-- **Descreva os passos de criação de uma Web API Spring boot, com conexão com SQL Server :**
+- **Qual a relação entre os termos lib, driver e JDBC?  :**
     
-   > R - Primeiramente verifique se a dependência do Spring data JPA e Spring web está adcionada, se não estiver
-  > adcione e em seguida adcione a depedência do SQL Server, logo após especifique as propriedades do
-  > banco de dados no arquivo ***application.properties***, após isso defina a camada de persistencia
-  > com o mapeamento de suas classe de entidade com as annotations do JPA e para camada de acesso aos
-  > dados com as operações de banco de dado defina as interfaces repositories necessárias, dependendo
-  > da aplicação adcione e programe as classe de services interagindo com os repositories e as classes
-  > de controllers com seus respectivos endpoints tendo conexão com a camada de service.
+   > R - JDBC é uma API utilizada para persistência de bancos de dados no Java
+  > que se utiliza de código de terceiro(Lib externa) que são drivers para fazer
+  > a conectividade com determinado banco de dados.
 
 
-- **Qual a funcionalidade do pom.xml? :**
+- **Como é adicionado uma lib no projeto?  :**
 
-   > R - é um arquivo XML do Maven onde há informações do projeto e configurações necessárias para 
-  > construir o sistemas.
-
-- **Qual a funcionalidades do applications.properties? :**
-
-  > R - É um arquivo de configuração em que é possível definir propriedades de banco de dados, testes, web, segurança, etc.
-
-
-- **Qual o propósito das Annotations? :**
-
-  > R - Annotations são um tipo de interface que fornece informações(metadados) para o sistema que em si não 
-  > fazem parte dele, sendo estas informações passadas para o compilador ou em tempo de compilação, em tempo
-  > de desenvolvimento ou processo de execução.
-
-- **Cite 10 annotations, com suas respectivas finalidades e descreva ou desenhe um cenário exemplificando a sua utilização :**
-
-    * **@Component** - *Define em tempo de execução da aplicação que determinada classe é um componente do Spring.*
-       <br/> Definido antes da declaração da classe do componente.  
-    * **@Service** - *Annotation especializada da @component que serve especificar que determinada classe será um serviço do spring.*
-       <br/> Definido também antes da declaração da classe de serviço.
-    * **@RestController** - *Annotation especializada da @component que serve especificar que determinada classe será um Controller do spring.*
-       <br/> Definido também antes da declaração da classe de controllers.
-    * **@SpringBootApplication** - *Especifica que a classe anotada é uma aplicação gerenciada pelo Spring Boot.*
-       <br/> Definido antes da declaração da classe principal da aplicação.
-    * **@RequestMapping** - *Usada nas classes de controllers para mapear as requisições definidas no controller*
-       <br/> Definido juntamente com a @RestController ou antes da declaração do método que define a requisição HTTP.
-    * **@Override** - *Especifica que a declaração do metódo é uma sobreescrita de método*
-       <br/> Utilizado antes da implementação de uma sobreescrita de método.
-    * **@Entity** - *Define que a classe anotada será  mapeada e persistida através do JPA como uma entidade.*
-       <br/> Utilizado antes da declaração de uma classe de entidade.
-    * **@Id** - *Obrigatoriamente utilizada juntamente com a @Entity, diz ao JPA que determinado atributo será mapeado como chave prímária da entidade.*
-      <br/> Utilizado antes da declaração do atributo escolhido.
-    * **@Requestbody** - *Usado para interligar uma requisição HTTP a um objeto passado por parâmetro de um método do controller*
-       <br/> Utilizado antes da declaração do parâmetro do método.
-    * **@Size** - Annotation do Java Bean Validation que determina o tamanho de uma string de um atributo e posteriormente será validado.
-       <br/> Utilizado antes da declaração do atributo String escolhido.
+   > R - Quando se trata de um projeto comum Java tem que adicionar manualmente,
+  > onde você adciona o arquivo .jar da biblioteca desejada e a adiciona através
+  > das configurações de sua IDE, já em um projeto Spring é adicionado através do 
+  > seu gerenciador de dependências seja Maven ou Gradle, no caso do Maven você
+  > adciona o código XML da dependência e ao recarregar o Maven, o próprio Maven
+  > se encarrega de baixar a libs externas definidas no **pom.xml**
 
 
-- **O que é um advice em Spring? Quais os tipos de advice para o Spring?**
+- **Escolha um banco de dados (menos o H2) e explique como utilizar o driver de comunicação :**
 
-  > R - É a ação executada por um aspecto em um join point particular, seu principal objetivo é fornecer apoio a preocupações adversas,
-  > como gerenciamento de transações, logs, regitro, etc. Seus tipos são Before, After, Around.
-
+  - Primeiramente a declare as dependências do driver JDBC do PostgreSQL e do JPA no arquivo **pom.xml**:
+  ```xml
+  <dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+    <scope>runtime</scope>
+  </dependency>
   
-- **O que é Spring IoC Container?**
-
-  > R - Spring IoC Container é o Core do Spring Framework, ele cria objetos, configura e monta dependências,
-  > gerencia todo o seu ciclo de vida, o container usa injeção de depedência para gerencia os componente da
-  > aplicação, obtém informações sobre os objetos de um arquivo de configuração(Geralmente XML).
-
-
-- **Como adicionamos segurança à nossa aplicação Spring? :**
-
-  > R - Para adcionar uma camada de seguranças às aplicações Spring é utilizado o Spring Security
-  > que provê configuração para apoio à camada de segurança do Spring, como estrutura de autenticação
-  > e controle de acesso e autorização.
-
-
-- **Qual é o pacote Spring responsável pelas conexões com os bancos de dados?**
-
-  > R - O processo feito pela camada de acesso a dados é realizado pelo Spring Data 
-  > cujo objetivo é prover configurações que facilitam o acesso à base de dados
-  > seja através do JPA ou JDBC.
-
-
-- **Explique e exemplifique como criar um agendamento de execução de métodos Spring; Cite exemplos de usabilidade :**
-
-  > R - Para criar um agendamento de execução de método Spring é necessário defini-lo via annotation @Scheduled e para
-  > ativa-lo @EnableScheduling. Exemplo:
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+  </dependency>
+  
+  ```
+  
+  - Agora é preciso especificar as informações de conexão ao banco no arquivo de configuração do Spring **application.properties**:
+  ```
+  spring.datasource.url=jdbc:postgresql://localhost:5432/nomedeseuDB
+  spring.datasource.username=postgres
+  spring.datasource.password=password
+  spring.jpa.hibernate.ddl-auto=update
+  spring.jpa.show-sql=true
+  spring.jpa.properties.hibernate.format_sql=true
+  spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQL81Dialect
+  ```
+  
+  - E por fim declare sua interface repository necessária para fazer a interligação com a camada de persitência através do JPA:
   
   ```java
-  @Configuration
-  @EnableScheduling
-  public class SpringConfig {
-      
-    @Scheduled(fixedRate = 1000)
-    public void scheduleFixedRateTask() {
-      System.out.println(
-              "Fixed rate task - " + System.currentTimeMillis() / 1000);
-    }
+  import org.springframework.data.jpa.repository.JpaRepository;
+
+  public interface ClasseRepository extends JpaRepository<Classe, Long> {
+
   }
   
   ```
-  **Se quisermos suporte a comportamento paralelo em tarefas agendadas adcionamos a annotation @Async :**
+  
+  
 
-  ```java
-  
-  @EnableAsync
-  public class ScheduledFixedRateExample {
-      @Async
-      @Scheduled(fixedRate = 1000)
-      public void scheduleFixedRateTaskAsync() throws InterruptedException {
-          System.out.println(
-            "Fixed rate task async - " + System.currentTimeMillis() / 1000);
-          Thread.sleep(2000);
-      }
-  
-  }
-  ```
-  
+
+
 - **Referências :**
 
-[https://www.devmedia.com.br/spring-boot-simplificando-o-spring/31979](https://www.devmedia.com.br/spring-boot-simplificando-o-spring/31979)
-[https://maven.apache.org/guides/introduction/introduction-to-the-pom.html](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)
-[https://docs.oracle.com/javase/tutorial/java/annotations/](https://docs.oracle.com/javase/tutorial/java/annotations/)
-[https://www.javatpoint.com/spring-boot-annotations](https://www.javatpoint.com/spring-boot-annotations)
-[https://www.geeksforgeeks.org/spring-ioc-container/](https://www.geeksforgeeks.org/spring-ioc-container/)
-[https://www.baeldung.com/spring-aop-advice-tutorial](https://www.baeldung.com/spring-aop-advice-tutorial)
-[https://www.baeldung.com/spring-scheduled-tasks](https://www.baeldung.com/spring-scheduled-tasks)
+[https://opensource.com/article/20/2/external-libraries-java](https://opensource.com/article/20/2/external-libraries-java) \
+[https://www.javatpoint.com/java-top-10-libraries](https://www.javatpoint.com/java-top-10-libraries) \
+[https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) \
+[https://pt.strephonsays.com/what-is-the-difference-between-maven-and-gradle](https://pt.strephonsays.com/what-is-the-difference-between-maven-and-gradle) \
+[https://docs.oracle.com/cd/E11882_01/java.112/e16548/toc.htm](https://docs.oracle.com/cd/E11882_01/java.112/e16548/toc.htm) \
+[https://opensource.com/article/20/2/external-libraries-java](https://opensource.com/article/20/2/external-libraries-java) \
+[https://www.codejava.net/frameworks/spring-boot/connect-to-postgresql-database-examples](https://www.codejava.net/frameworks/spring-boot/connect-to-postgresql-database-examples) 

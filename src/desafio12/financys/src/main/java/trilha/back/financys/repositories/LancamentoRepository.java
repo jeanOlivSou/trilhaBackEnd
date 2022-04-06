@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface LancamentoRepository extends JpaRepository<Lancamento, Long> {
     List<Lancamento> findByPago(Boolean pago);
+    List<Lancamento> findByDataAndMontanteAndPago(String data, String montante, Boolean pago);
 }

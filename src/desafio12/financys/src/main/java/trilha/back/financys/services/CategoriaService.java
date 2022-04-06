@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import trilha.back.financys.domains.Categoria;
 import trilha.back.financys.dtos.reponses.CategoriaResponse;
 import trilha.back.financys.dtos.requests.CategoriaRequest;
+import trilha.back.financys.exceptions.NotFoundException;
 import trilha.back.financys.mappers.CategoriaMapper;
 import trilha.back.financys.repositories.CategoriaRepository;
 
@@ -75,9 +76,15 @@ public class CategoriaService {
     }
 
     public String idCategoriaByNome(String nome) {
-        Categoria categoriaObt = categoriaRepository.findByNome(nome);
+        try {
+            Categoria categoriaObt = categoriaRepository.findByNome(nome);
 
-        return "O id da categoria " + categoriaObt.getNome() + " é : " + categoriaObt.getId();
+            return "O id da categoria " + categoriaObt.getNome() + " é : " + categoriaObt.getId();
+        }
+        catch (NullPointerException e){
+            throw new NotFoundException("Não foi possível encontrar a categoria pelo nome");
+        }
+
 
     }
 

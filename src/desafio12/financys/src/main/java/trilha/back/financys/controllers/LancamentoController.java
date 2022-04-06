@@ -9,6 +9,7 @@ import trilha.back.financys.dtos.requests.LancamentoRequest;
 import trilha.back.financys.services.LancamentoService;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -45,6 +46,16 @@ public class LancamentoController {
     @GetMapping("/pago")
     public ResponseEntity<List<LancamentoResponse>> readByPago(@RequestParam Boolean pago) {
         return ResponseEntity.ok(lancamentoService.readByPago(pago));
+    }
+
+    @GetMapping("/filter")
+    public ResponseEntity<List<LancamentoResponse>> readByFilter(
+            @RequestParam(value = "data", required = false) String data,
+            @RequestParam(value = "montante", required = false) String montante,
+            @RequestParam(value = "pago", required = false) Boolean pago
+
+    ){
+        return ResponseEntity.ok(lancamentoService.filter(data, montante, pago));
     }
 
 

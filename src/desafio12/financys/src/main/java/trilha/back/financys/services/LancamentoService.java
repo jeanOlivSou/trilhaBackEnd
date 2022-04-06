@@ -8,6 +8,8 @@ import trilha.back.financys.dtos.reponses.LancamentoChartResponse;
 import trilha.back.financys.dtos.reponses.LancamentoResponse;
 import trilha.back.financys.dtos.requests.LancamentoRequest;
 import trilha.back.financys.exceptions.DivideByZeroException;
+import trilha.back.financys.exceptions.ListaVaziaException;
+import trilha.back.financys.exceptions.NotFoundException;
 import trilha.back.financys.mappers.LancamentoMapper;
 import trilha.back.financys.repositories.CategoriaRepository;
 import trilha.back.financys.repositories.LancamentoRepository;
@@ -26,14 +28,15 @@ public class LancamentoService {
     private LancamentoRepository lancamentoRepository;
 
     @Autowired
-    CategoriaRepository categoriaRepository;
+    private CategoriaRepository categoriaRepository;
 
     @Autowired
-    LancamentoMapper lancamentoMapper;
+    private LancamentoMapper lancamentoMapper;
+
 
     public LancamentoResponse create(LancamentoRequest lancamentoRequest) {
         if (validaCategoriaById(lancamentoRequest.getCategoria().getId()) == false) {
-            throw new RuntimeException("Não foi possível criar lançamento," +
+            throw new NotFoundException("Não foi possível criar lançamento," +
                     " categoria informada não encontrada");
         } else {
 
@@ -193,6 +196,28 @@ public class LancamentoService {
         catch (ArithmeticException e){
             throw new DivideByZeroException("Não é permitido divisão por zero");
         }
+
+    }
+
+    public List<LancamentoResponse> filter(String data, String montante, Boolean pago){
+
+        if (data == null || montante == null){
+            throw new NotFoundException("Parâmetros com valores errados");
+        }
+
+            List<LancamentoResponse> lResponseLista = new ArrayList<>();
+
+            lancamentoRepository.findByDataAndMontanteAndPago(data, montante, pago).stream()
+                    .forEach(
+                            lancamento ->
+                                    lResponseLista
+                                            .add(lancamentoMapper.toResponse(lancamento)));
+
+            if (lResponseLista.size() == 0){
+                throw new ListaVaziaException("Não existe os dados pelo parâmetro passado");
+            }
+
+            return lResponseLista;
     }
 
 }

@@ -200,22 +200,25 @@ public class LancamentoService {
     }
 
     public List<LancamentoResponse> filter(String data, String montante, Boolean pago){
+        List<LancamentoResponse> lResponseLista = new ArrayList<>();
 
         if (data == null || montante == null){
             throw new NotFoundException("Parâmetros com valores errados");
         }
 
-            List<LancamentoResponse> lResponseLista = new ArrayList<>();
+        else {
 
             lancamentoRepository.findByDataAndMontanteAndPago(data, montante, pago).stream()
                     .forEach(
                             lancamento ->
                                     lResponseLista
                                             .add(lancamentoMapper.toResponse(lancamento)));
-
-            if (lResponseLista.size() == 0){
+            if (lResponseLista.size() == 0) {
                 throw new ListaVaziaException("Não existe os dados pelo parâmetro passado");
             }
+        }
+
+
 
             return lResponseLista;
     }

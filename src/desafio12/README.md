@@ -17,11 +17,20 @@
    > R - objetivo dos testes unitários é assegurar para equipe de desenvolvimento que
   > que os métodos estão funcionando conforme os requisitos do cliente.
 
-- **Quais  são  as  ferramentas  que  utilizamos  para  realizar  testes  unitários(2  pelo  menos) :**
+  - **Quais  são  as  ferramentas  que  utilizamos  para  realizar  testes  unitários(2  pelo  menos) :**
     
-    * Junit 5
-    * AssertJ
-    * Mockito
+      * Junit 5
+      * AssertJ
+      * Mockito
+
+- **Pilha de Erros dos testes (StackTracer) :**
+
+    | Texto Stack Track  |                                                                     Explicação |
+    |-------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------|
+    | org.opentest4j.AssertionFailedError: Expected java.lang.RuntimeException to be thrown, but nothing was thrown. |                   Ao desenvolver o método filter não havia a exceção esperada. |
+    | java.lang.AssertionError: Status expected:<204> but was:<404> |  Erro de afirmativa, era esperado status No Content mas foi lançado Not Found. |
+    | java.lang.AssertionError: Status expected:<200> but was:<204>|         Erro de afirmativa, era esperado status OK mas foi lançado No content. |
+
 
 
 - **Referências :**

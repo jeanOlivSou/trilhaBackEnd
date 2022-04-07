@@ -59,7 +59,7 @@ public class TrilhaBackLancamentoControllerTest {
     }
 
     @Test
-    void DeveFalharSeRetornarListaVazia() throws Exception{
+    void DeveFalharSeRetornarComParametrosInvalidos() throws Exception{
         when(lancamentoService.filter(null, null, true)).thenThrow(NotFoundException.class);
 
         mockMvc.perform(get("/lancamentos/filter")

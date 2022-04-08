@@ -17,11 +17,11 @@
    > R - objetivo dos testes unitários é assegurar para equipe de desenvolvimento que
   > que os métodos estão funcionando conforme os requisitos do cliente.
 
-  - **Quais  são  as  ferramentas  que  utilizamos  para  realizar  testes  unitários(2  pelo  menos) :**
+- **Quais  são  as  ferramentas  que  utilizamos  para  realizar  testes  unitários(2  pelo  menos) :**
     
-      * Junit 5
-      * AssertJ
-      * Mockito
+    * Junit 5
+    * AssertJ
+    * Mockito
 
 - **Pilha de Erros dos testes (StackTracer) :**
 

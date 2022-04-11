@@ -31,7 +31,7 @@ public class CategoriaServiceImpl implements CategoriaServicePort {
             throw new NotFoundException("Não foi possivel encontrar a categoria informada");
         }
         else {
-            categoriaObt.setDescription(categoria.getName());
+            categoriaObt.setName(categoria.getName());
             categoriaObt.setDescription(categoria.getDescription());
 
             return categoriaRepositoryPort.save(categoriaObt);

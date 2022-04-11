@@ -69,7 +69,7 @@ public class LancamentoController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<LancamentoResponse> readById(Long id){
+    public ResponseEntity<LancamentoResponse> readById(@PathVariable Long id){
 
         Lancamento lancamento = lancamentoService.readById(id);
 

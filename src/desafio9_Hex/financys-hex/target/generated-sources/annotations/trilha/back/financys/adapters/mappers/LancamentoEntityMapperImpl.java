@@ -9,7 +9,7 @@ import trilha.back.financys.core.domains.Lancamento;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-03-24T09:27:30-0300",
+    date = "2022-04-10T13:36:04-0300",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 13.0.2 (Oracle Corporation)"
 )
 @Component

@@ -1,4 +1,4 @@
-## Desafio 2:
+## Desafio 2 - POO :
 
 - **Com suas palavras defina o que é programação orientada a objetos (POO) e cite seus pilares? (máx 10 linhas):**
 

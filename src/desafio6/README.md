@@ -1,4 +1,4 @@
-# Desafio 6 :
+# Desafio 6  - DTO:
 
 - **O que significa DTO, e qual sua importância? :**
     > R - DTO é um acrônimo para Data Transfer Object (Em tradução livre: Objeto de Transferência de dados)

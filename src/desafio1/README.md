@@ -2,7 +2,7 @@
 
 --------------------------------------------------------------------
 
-## Desafio 1: 
+## Desafio 1 - Git: 
 
 - **Com suas palavras defina o que é um sistema de controle de versões (VCS)?  (máx 10 linhas):**
 

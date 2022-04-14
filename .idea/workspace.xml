@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fbd8deb-00c3-4ee9-bab7-6139df88a6ec" name="Changes" comment="" />
+    <list default="true" id="4fbd8deb-00c3-4ee9-bab7-6139df88a6ec" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/desafio1/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio1/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/desafio10/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio10/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/desafio11/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio11/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/desafio12/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio12/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/desafio13/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio13/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/desafio2/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio2/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/desafio3/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio3/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/desafio4/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio4/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/desafio5/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio5/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/desafio6/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio6/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/desafio8/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio8/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/desafio9/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/desafio9/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,16 +47,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/desafio13" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/desafio14" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jolivsou\Desktop\trilhaItau\trilhaBackEnd\src\desafio14" />
       <recent name="C:\Users\jolivsou\Desktop\trilhaItau\trilhaBackEnd\src\desafio13" />
       <recent name="C:\Users\jolivsou\Desktop\trilhaItau\trilhaBackEnd\src\desafio12" />
       <recent name="C:\Users\jolivsou\Desktop\trilhaItau\trilhaBackEnd\src\desafio11" />
       <recent name="C:\Users\jolivsou\Desktop\trilhaItau\trilhaBackEnd\src\desafio6" />
-      <recent name="C:\Users\jolivsou\Desktop\trilhaItau\trilhaBackEnd\src\desafio4" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jolivsou\Desktop\trilhaItau\trilhaBackEnd\src\desafio3\" />
